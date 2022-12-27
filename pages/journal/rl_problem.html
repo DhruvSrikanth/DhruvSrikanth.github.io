@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Research Journal</title>
+    <!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://latex.now.sh/style.css">
+	<!-- Latex math -->
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<!-- Syntax Highlighting -->
+	<link rel="stylesheet" href="https://latex.now.sh/prism/prism.css">
+	<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</html>
+
+
+
+
+<body style="background-color:rgb(255,253,208);">
+	<div class="container" style="padding: 0.5%;">
+		<div class="row">
+			<div class="top-nav">
+				<a href="../../index.html" style="padding-right: 1%;">About</a>
+				<a href="https://scholar.google.com/citations?user=Dvh53xkAAAAJ&hl=en" style="padding-right: 1%;">Publications</a>
+				<a href="../open_source.html" style="padding-right: 1%;">Open Source</a>
+				<a href="../research_journal.html" style="padding-right: 1%;">Research Journal</a>
+				<a href="../../assets/cv.pdf">CV</a>
+			</div>	
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="recipe">
+				<a href="ffalgo.html">
+					<h4 style="text-align: center;">What makes up an RL problem?</h4>
+				</a>
+				<p class="author">Dhruv Srikanth <br> December 25th, 2022</p>
+				<div class="abstract">
+				<h2>Abstract</h2>
+				<p style="text-align: left; margin-left: 5%; margin-right: 5%; margin-bottom: 5%;" >
+                    <em>Reinforcement learning</em> (RL) is a field of machine learning suited for problems where an agent learns to take actions in an environment to maximize long-term returns. 
+                    In other word, RL deals with the problem of sequential decision making. As I go through the Rich Sutton and Andrew Barto's book, <a href="https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf"><cite>Reinforcement Learning: An Introduction</cite></a>, I will be exploring some of the concepts and ideas that I come across.
+                </p>
+				
+				<p style="text-align: left; margin-bottom: 5%;">
+					Reference: <a href="https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf"><cite>Reinforcement Learning: An Introduction</cite></a> by <cite>Richard S. Sutton and Andrew G. Barto</cite>
+				</p>
+				<p style="text-align: left; margin-bottom: 5%;">
+					The components that make up a <em>reinforcement learning</em> problem are:
+                    <ol>
+                        <li>A policy - This determines an agent's next action, given it's current state. This provides a mapping from the current state to the next state at a given time, through an action.</li>
+                        <li>A reward signal - This determines the primary "<em>goodness</em>" of a state transition; a scalar value provided by an action guiding the agent from the current state to the next state.</li>
+                        <li>A value function - This determines the <em>goodness</em> of a state, given the agent's current policy i.e. the long-term reward or return for a given policy.</li>
+                        <li>A model - This determines the next state and reward, given the current state and action. This is used to estimate the value function.</li>
+                    </ol>
+				</p>
+
+                <p style="text-align: left; margin-bottom: 5%;">
+                    The <em>policy</em> determined by an agent charts a course that maximizes the expected return for the agent. 
+                    Therefore it seems that RL problems are concerned with searching the policy space to find the optimal policy. 
+                    The policy space however is determined by the environemnt i.e. the state space and action space. This can often be extremely large. 
+                    Hence, it seems natural that the next step is to find a way to approximate the value function. This can be done using a neural network. One approach could be to use a deep learning model to approximate the value function, as well as the policy. Other methods can be used such as <em>Monte Carlo</em> methods etc.
+                    An alternative to this is evolutionary methods. These methods are used to find the optimal policy by evolving the policy space. If we consider episodic tasks, then neural approximations can be used to determine an optimal policy during an episode, however, evolutainary methods would be used to find the optimal policy across episodes. That being said, neural approximations still learn an optimal policy across episodes by greedily optimizing each episode. 
+                    Based on the size of the state space, action space and policy space, we can determine which method is more suitable for a given problem. 
+                    It seems to me that when the policy space is small or state space is small, then evolutionary methods are more suitable as we are searching over the policy space.
+                    However, when the policy space is large, then neural approximations are more suitable as a way of efficiently searching the policy space.
+                    
+                </p>
+                <p style="text-align: left; margin-bottom: 5%;">
+                    A <em>model</em> of the environment is used to perform planning i.e. allows that agent to learn with forsight. 
+                    This leads to the common trade-off between exploration and exploitation. When do we explore the environment and when do we exploit the environment? In code, we could set this to be a hyperparameter - $\epsilon$. Consider a random variable $X$ uniformly distributed between 0 and 1, that determines the probability of exploration. 
+                    We see that we may explore the environment when $x ~ X < \epsilon$ and exploit the environment when $x ~ X > \epsilon$. Tuning this hyperparameter can lead to several emergent behaviors such as:
+                    <ul>
+                        <li>Setting $\epsilon$ to be high forces the model to explore more and learn new strategies which could confuse a sub-optimal player in a game.</li>
+                        <li>Setting $\epsilon$ to be low could reduce the variance that troubles RL and reduce overall training time.</li>
+                    </ul>
+                </p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="contact-info">
+				<h4>Contact</h4>
+				<a href="mailto:dhruvsrikanth@uchicago.edu" style="text-decoration: none; font-size: xx-large">
+					<i class="fa fa-envelope" aria-hidden="true"></i>
+				</a>
+				
+				<a href="https://www.linkedin.com/in/dhruv-srikanth/" style="text-decoration: none; font-size: xx-large">
+					<i class="fa fa-linkedin-square" aria-hidden="true"></i>
+				</a>
+
+				<a href="https://github.com/DhruvSrikanth" style="text-decoration: none; font-size: xx-large">
+					<i class="fa fa-github-square" aria-hidden="true"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+</body>
+
+	
+
+				
