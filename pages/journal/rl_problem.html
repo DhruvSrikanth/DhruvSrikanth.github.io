@@ -8,7 +8,8 @@
     <!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://latex.now.sh/style.css">
 	<!-- Latex math -->
-	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 	<!-- Syntax Highlighting -->
 	<link rel="stylesheet" href="https://latex.now.sh/prism/prism.css">
 	<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
@@ -40,25 +41,25 @@
 				<p class="author">Dhruv Srikanth <br> December 25th, 2022</p>
 				<div class="abstract">
 				<h2>Abstract</h2>
-				<p style="text-align: left; margin-left: 5%; margin-right: 5%; margin-bottom: 5%;" >
+				<p style="text-align: justify; margin-left: 5%; margin-right: 5%; margin-bottom: 5%;" >
                     <em>Reinforcement learning</em> (RL) is a field of machine learning suited for problems where an agent learns to take actions in an environment to maximize long-term returns. 
                     In other word, RL deals with the problem of sequential decision making. As I go through the Rich Sutton and Andrew Barto's book, <a href="https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf"><cite>Reinforcement Learning: An Introduction</cite></a>, I will be exploring some of the concepts and ideas that I come across.
                 </p>
 				
-				<p style="text-align: left; margin-bottom: 5%;">
+				<p style="text-align: justify; margin-bottom: 5%;">
 					Reference: <a href="https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf"><cite>Reinforcement Learning: An Introduction</cite></a> by <cite>Richard S. Sutton and Andrew G. Barto</cite>
 				</p>
-				<p style="text-align: left; margin-bottom: 5%;">
+				<p style="text-align: justify; margin-bottom: 5%;">
 					The components that make up a <em>reinforcement learning</em> problem are:
                     <ol>
-                        <li>A policy - This determines an agent's next action, given it's current state. This provides a mapping from the current state to the next state at a given time, through an action.</li>
-                        <li>A reward signal - This determines the primary "<em>goodness</em>" of a state transition; a scalar value provided by an action guiding the agent from the current state to the next state.</li>
-                        <li>A value function - This determines the <em>goodness</em> of a state, given the agent's current policy i.e. the long-term reward or return for a given policy.</li>
-                        <li>A model - This determines the next state and reward, given the current state and action. This is used to estimate the value function.</li>
+                        <li style="text-align: justify;">A policy - This determines an agent's next action, given it's current state. This provides a mapping from the current state to the next state at a given time, through an action.</li>
+                        <li style="text-align: justify;">A reward signal - This determines the primary "<em>goodness</em>" of a state transition; a scalar value provided by an action guiding the agent from the current state to the next state.</li>
+                        <li style="text-align: justify;">A value function - This determines the <em>goodness</em> of a state, given the agent's current policy i.e. the long-term reward or return for a given policy.</li>
+                        <li style="text-align: justify;">A model - This determines the next state and reward, given the current state and action. This is used to estimate the value function.</li>
                     </ol>
 				</p>
 
-                <p style="text-align: left; margin-bottom: 5%;">
+                <p style="text-align: justify; margin-bottom: 5%;">
                     The <em>policy</em> determined by an agent charts a course that maximizes the expected return for the agent. 
                     Therefore it seems that RL problems are concerned with searching the policy space to find the optimal policy. 
                     The policy space however is determined by the environemnt i.e. the state space and action space. This can often be extremely large. 
@@ -69,14 +70,18 @@
                     However, when the policy space is large, then neural approximations are more suitable as a way of efficiently searching the policy space.
                     
                 </p>
-                <p style="text-align: left; margin-bottom: 5%;">
+                <p style="text-align: justify; margin-bottom: 5%;">
                     A <em>model</em> of the environment is used to perform planning i.e. allows that agent to learn with forsight. 
-                    This leads to the common trade-off between exploration and exploitation. When do we explore the environment and when do we exploit the environment? In code, we could set this to be a hyperparameter - $\epsilon$. Consider a random variable $X$ uniformly distributed between 0 and 1, that determines the probability of exploration. 
-                    We see that we may explore the environment when $x ~ X < \epsilon$ and exploit the environment when $x ~ X > \epsilon$. Tuning this hyperparameter can lead to several emergent behaviors such as:
+                    This leads to the common trade-off between exploration and exploitation. When do we explore the environment and when do we exploit the environment? In code, we could set this to be a hyperparameter - \(\epsilon\). Consider a random variable \(X\) uniformly distributed between 0 and 1, that determines the probability of exploration. 
+                    We see that we may explore the environment when \(x \sim X \le \epsilon\) and exploit the environment when \(x \sim X > \epsilon\). Tuning this hyperparameter can lead to several emergent behaviors such as:
                     <ul>
-                        <li>Setting $\epsilon$ to be high forces the model to explore more and learn new strategies which could confuse a sub-optimal player in a game.</li>
-                        <li>Setting $\epsilon$ to be low could reduce the variance that troubles RL and reduce overall training time.</li>
+                        <li style="text-align: justify;">Setting \(\epsilon\) to be high forces the model to explore more and learn new strategies which could confuse a sub-optimal player in a game.</li>
+                        <li style="text-align: justify;">Setting \(\epsilon\) to be low could reduce the variance that troubles RL and reduce overall training time.</li>
                     </ul>
+                </p>
+                
+                <p style="text-align: justify; margin-bottom: 5%;">
+                    In the next post, I will probably explore an example of an RL problem, maybe something fun like a game.
                 </p>
 				</div>
 			</div>
