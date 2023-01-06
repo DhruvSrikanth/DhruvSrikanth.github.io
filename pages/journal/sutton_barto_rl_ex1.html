@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Research Journal</title>
+    <!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://latex.now.sh/style.css">
+	<!-- Latex math -->
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<!-- Syntax Highlighting -->
+	<link rel="stylesheet" href="https://latex.now.sh/prism/prism.css">
+	<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</html>
+
+
+
+
+<body style="background-color:rgb(255,253,208);">
+	<div class="container" style="padding: 0.5%;">
+		<div class="row">
+			<div class="top-nav">
+				<a href="../../index.html" style="padding-right: 1%;">About</a>
+				<a href="https://scholar.google.com/citations?user=Dvh53xkAAAAJ&hl=en" style="padding-right: 1%;">Publications</a>
+				<a href="../open_source.html" style="padding-right: 1%;">Open Source</a>
+				<a href="../research_journal.html" style="padding-right: 1%;">Research Journal</a>
+				<a href="../../assets/cv.pdf">CV</a>
+			</div>	
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="recipe">
+				<a href="ffalgo.html">
+					<h4 style="text-align: center;">Reinforcement Learning: An Introduction - <cite>Sutton and Barto</cite></h4>
+					<h5 style="text-align: center;">Exercise 1</h5>
+				</a>
+				<p class="author">Dhruv Srikanth <br> January 6th, 2023</p>
+				<div class="abstract">
+				<h2>Abstract</h2>
+				<p style="text-align: justify; margin-left: 5%; margin-right: 5%; margin-bottom: 5%;" >
+                    As I go through the Rich Sutton and Andrew Barto's book, <a href="https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf"><cite>Reinforcement Learning: An Introduction</cite></a>, I will be exploring some of the concepts and ideas that I come across. Here are the solutions I came up with for <em>exercise 1</em>.
+                </p>
+				
+				<p style="text-align: justify; margin-bottom: 5%;">
+					Reference: <a href="https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf"><cite>Reinforcement Learning: An Introduction</cite></a> by <cite>Richard S. Sutton and Andrew G. Barto</cite>
+				</p>
+				<p style="text-align: justify; margin-bottom: 5%;">
+					<span><strong>Problem 1.1</strong></span><br>
+					<em><Strong>Self-Play</Strong> Suppose, instead of playing against a random
+					opponent, the reinforcement learning algorithm described above played against
+					itself. What do you think would happen in this case? Would it learn a different
+					way of playing?</em><br><br>
+
+					This depends on the method for policy initialization. If we consider it to be random for both agents, 
+					The agents will learn to exploit strategies in eachother's policy. We can view this as a <em>minimax</em> game. 
+					Eventually the agents will converge to a Nash equilibrium where they both play the same strategy or policy.
+					<br><br>
+					Another method for policy initialization is to initialize the policy to be the same for both agents. This is the same 
+					as the case above. We can make a formal proof by contradition.
+					<br><br>
+					Consider an agent converges to a sub-optimal policy. An adversarial agent will learn to exploit this policy. 
+					This will result in the converged agent adjusting its policy as a response to the adversarial agent's policy. This implies 
+					that the conerged agent has not yet converged on a optimal policy i.e. found the Nash equilibrium. 
+					Hence by contradiction, when two agents adversarially engage in self-play, 
+					they will converge to the optimal policy. 
+
+
+				</p>
+				<p style="text-align: justify; margin-bottom: 5%;">
+					<span><strong>Problem 1.2</strong></span><br>
+					<em><Strong>Symmetries</Strong> Many tic-tac-toe positions appear different but
+					are really the same because of symmetries. How might we amend the reinforcement learning algorithm described above to take advantage of this? In what
+					ways would this improve it? Now think again. Suppose the opponent did not
+					take advantage of symmetries. In that case, should we? Is it true, then, that
+					symmetrically equivalent positions should necessarily have the same value?</em><br><br>
+
+					We can use a <em>symmetry function</em> to map the state space to a smaller set of states. 
+					Using this smaller set of states, the agent will be able learn an optimal policy faster. 
+					We can also choose to focus more on <em>exploitation</em> than <em>exploration</em>.
+					<br><br>
+					In the case that the opponent does not take advantage of symmetries, we should not. This is 
+					because the opponent will learn to exploit the disadvantage of the agent taking advantage of symmetries. 
+					The disadvantage is that the agent will not be able to differentiate symmetric position states. 
+					This is why symmetrically equivalent positions should not necessarily have the same value i.e. 
+					<em>value functions should necessarily assign the the same value to symmetrically equivalent states.</em>
+
+
+					
+
+				</p>
+				<p style="text-align: justify; margin-bottom: 5%;">
+					<span><strong>Problem 1.3</strong></span><br>
+					<em><strong>Greedy Play</strong> Suppose the reinforcement learning player was
+					greedy, that is, it always played the move that brought it to the position that
+					it rated the best. Would it learn to play better, or worse, than a nongreedy
+					player? What problems might occur?</em><br><br>
+
+					Let us consider a two-player minimax game between an agent and an adversary. The agent 
+					employs a greedy policy while a adversary employs a non-greedy policy. The agent will 
+					never explore the environment as it is always greedy i.e. exploiting the environment. The non-greedy adversary will 
+					be able to exploit the agent's policy by learning the environment and adjusting its policy accordingly.
+					
+					
+				</p>
+				<p style="text-align: justify; margin-bottom: 5%;">
+					<span><strong>Problem 1.4</strong></span><br>
+					<em><strong>Learning from Exploration</strong> Suppose learning updates occurred
+						after all moves, including exploratory moves. If the step-size parameter is
+						appropriately reduced over time, then the state values would converge to a
+						set of probabilities. What are the two sets of probabilities computed when we
+						do, and when we do not, learn from exploratory moves? Assuming that we
+						do continue to make exploratory moves, which set of probabilities might be
+						better to learn? Which would result in more wins?</em><br><br>
+
+						As a side note, we can consider the step-size parameter to be analogous to the learning rate in gradient descent 
+						and the temperature parameter in simulated annealing. 
+						<br><br>
+						The two sets of probabilities computed when we do learn from exploratory moves are the 
+						<em>state-action</em> probabilities and when we do not learn from exploratory moves are the <em>state</em> probabilities. 
+						<br><br>
+						It would be optimal to learn from a state-action probabilities as 
+						it contains more information about the environment.
+
+
+					
+				</p>
+				<p style="text-align: justify; margin-bottom: 5%;">
+					<span><strong>Problem 1.5</strong></span><br>
+					<em><strong>Other Improvements</strong> Can you think of other ways to improve
+						the reinforcement learning player? Can you think of any better way to solve
+						the tic-tac-toe problem as posed?</em><br><br>
+
+						Improvements to the agent that I can think of are:
+						<ol>
+							<li>
+								We can reduce the variance of the agent's policy by first training the agent 
+								using an actor-critic algorithm and then use the actor's policy 
+								in the self-play setting using the reinforce algorithm.
+							</li>
+							<li>
+								A high quality dataset with expert knowledge for the critic can help the agent learn off-policy.
+							</li>
+							<li>
+								We can use approximation methods such as deep learning to learn the policy and the value function.
+							</li>
+						</ol>
+
+					
+				</p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="contact-info">
+				<h4>Contact</h4>
+				<a href="mailto:dhruvsrikanth@uchicago.edu" style="text-decoration: none; font-size: xx-large">
+					<i class="fa fa-envelope" aria-hidden="true"></i>
+				</a>
+				
+				<a href="https://www.linkedin.com/in/dhruv-srikanth/" style="text-decoration: none; font-size: xx-large">
+					<i class="fa fa-linkedin-square" aria-hidden="true"></i>
+				</a>
+
+				<a href="https://github.com/DhruvSrikanth" style="text-decoration: none; font-size: xx-large">
+					<i class="fa fa-github-square" aria-hidden="true"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+</body>
+
+	
+
+				
