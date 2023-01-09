@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Research Journal</title>
+    <!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://latex.now.sh/style.css">
+	<!-- Latex math -->
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<!-- Syntax Highlighting -->
+	<link rel="stylesheet" href="https://latex.now.sh/prism/prism.css">
+	<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</html>
+
+
+
+
+<body style="background-color:rgb(255,253,208);">
+	<div class="container" style="padding: 0.5%;">
+		<div class="row">
+			<div class="top-nav">
+				<a href="../../index.html" style="padding-right: 1%;">About</a>
+				<a href="https://scholar.google.com/citations?user=Dvh53xkAAAAJ&hl=en" style="padding-right: 1%;">Publications</a>
+				<a href="../open_source.html" style="padding-right: 1%;">Open Source</a>
+				<a href="../research_journal.html" style="padding-right: 1%;">Research Journal</a>
+				<a href="../../assets/cv.pdf">CV</a>
+			</div>	
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="recipe">
+				<h4 style="text-align: center;">Gradient Bandits, Energy Based Models and Contrastive Learning</h4>
+				<p class="author">Dhruv Srikanth <br> January 8th, 2023</p>
+				<div class="abstract">
+				<h2>Abstract</h2>
+				<p style="text-align: justify; margin-left: 5%; margin-right: 5%; margin-bottom: 5%;" >
+                    <em>Gradient bandits</em> are a class of algorithms that use gradient information to solve the multi-armed bandit problem. In this post, I will explore the connection between gradient bandits and energy based models. 
+					I will also discuss the connection between gradient bandits and contrastive learning.
+                </p>
+				
+				<p style="text-align: justify; margin-bottom: 5%;">
+					Reference: <a href="https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf"><cite>Reinforcement Learning: An Introduction</cite></a> by <cite>Richard S. Sutton and Andrew G. Barto</cite>
+				</p>
+				
+				<p style="text-align: justify; margin-bottom: 5%;">
+					As I go through the Rich Sutton and Andrew Barto's book, <a href="https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf"><cite>Reinforcement Learning: An Introduction</cite></a>, specifically section 2.7 on <em>gradient bandits</em>, 
+					I came across the update rule for action preferences in the gradient bandit algorithm. This update rule, similar to the update 
+					rule in stochastic gradient descent was reminiscent of models that can be analyzed under the <em>energy-based framework</em>.
+
+				</p>
+
+                <p style="text-align: justify; margin-bottom: 5%;">
+                    The n-armed bandit or multi-armed bandit problem is a classic problem in reinforcement learning. Simply put, 
+					for a given time step, the agent is presented with a set of actions (n or otherwise). Upon choosing an action, the agent sees the true reward. 
+					The agent must choose the action that maximizes its expected long term reward i.e. the return after several steps. An example of this is a slot machine. 
+					Given a slot machine with one lever (one arm) the agent can pull the lever and see the reward. The agent 
+					can replay the game several times. This falls under the one-armed bandit problem. Now consider a slot machine with 
+					<em>n</em> levers. The agent must choose which lever out of <em>n</em> levers to pull at each time step, so as to 
+					maximize the winnings at the end of the night (or whenever the agent gets kicked out of the casino). 
+
+                </p>
+                <p style="text-align: justify; margin-bottom: 5%;">
+                    A set of solutions that exist for the multi-armed bandit problem explore methods for 
+					learning action values, i.e. the expected reward for each action at a each time step to choose an action (or lever). Another set of solutions 
+					explore methods for learning numerical preferences or probabilities for each action at the given time step, and making a choise based on these probabilities. 
+					Gradient bandits fall under the latter category.
+                </p>
+
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="contact-info">
+				<h4>Contact</h4>
+				<a href="mailto:dhruvsrikanth@uchicago.edu" style="text-decoration: none; font-size: xx-large">
+					<i class="fa fa-envelope" aria-hidden="true"></i>
+				</a>
+				
+				<a href="https://www.linkedin.com/in/dhruv-srikanth/" style="text-decoration: none; font-size: xx-large">
+					<i class="fa fa-linkedin-square" aria-hidden="true"></i>
+				</a>
+
+				<a href="https://github.com/DhruvSrikanth" style="text-decoration: none; font-size: xx-large">
+					<i class="fa fa-github-square" aria-hidden="true"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+</body>
+
+	
+
+				
