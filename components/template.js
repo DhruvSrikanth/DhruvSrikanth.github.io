@@ -5,9 +5,7 @@ const pageParam = urlParams.get('page');
 // Define content paths
 const contentPaths = {
     'index': '../content/index.html',
-    'open_source': '../content/open_source.html',
-    'research_journal': '../content/research_journal.html',
-    'what_and_why': '../content/journal/what_and_why.html'
+    'open_source': '../content/open_source.html'
 };
 
 // Update page title based on page parameter
@@ -31,8 +29,6 @@ const fixPaths = () => {
                 link.href = link.href.replace('index.html', 'templates/base.html?page=index');
             } else if (link.href.includes('open_source.html')) {
                 link.href = link.href.replace('open_source.html', 'templates/base.html?page=open_source');
-            } else if (link.href.includes('research_journal.html')) {
-                link.href = link.href.replace('research_journal.html', 'templates/base.html?page=research_journal');
             }
         }
     });
@@ -62,10 +58,6 @@ async function loadContent() {
             content = temp.querySelector('.intro');
         } else if (pageParam === 'open_source') {
             content = temp.querySelector('.project');
-        } else if (pageParam === 'research_journal') {
-            content = temp.querySelector('.topics');
-        } else if (pageParam === 'what_and_why') {
-            content = temp.querySelector('.recipe');
         }
         
         // Inject the content
